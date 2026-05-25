@@ -15,4 +15,4 @@ jobs:
 
       - run: snyk test
         env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          SNYK_TOKEN: ${{40795790-a71e-46b4-98a7-25afc12e6073 }}
