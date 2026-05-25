@@ -10,21 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 17
+      - uses: snyk/actions/setup@master
 
-      - name: Install Snyk
-        uses: snyk/actions/setup@master
-
-      - name: Authenticate and Scan
+      - name: Run Snyk test
         env:
           SNYK_TOKEN: snyk_uat.1fcad39e.eyJlIjoxNzgwMTg5MDgwLCJoIjoic255ay5pbyIsImoiOiJBWjVjby1EbFFXV1NmY1YtV1RiOGRBIiwicyI6IlM4TkI2aDZPUWR1c1NQdUxkRG5tT1EiLCJ0aWQiOiJBQUFBQUFBQUFBQUFBQUFBQUFBQUFBIn0.JsNKRlp_e7qufjsbsvaBNYRvFi-Xle4H5YvL3jM7udEjC8UHBD8p2sNMhuNjDmaeiVGZImvW2AUrIic1mpXaAQ
         run: |
-          snyk auth $SNYK_TOKEN
-          snyk test
+          snyk test --all-projects --debug
+
