@@ -1,18 +1,30 @@
-name: Snyk
+name: Snyk Security Scan
 
 on:
- push:
- pull_request:
+  push:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   snyk:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - uses: snyk/actions/setup@master
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
 
-      - run: snyk test
+      - name: Install Snyk
+        uses: snyk/actions/setup@master
+
+      - name: Authenticate and Scan
         env:
-          SNYK_TOKEN: ${{40795790-a71e-46b4-98a7-25afc12e6073 }}
+          SNYK_TOKEN: 40795790-a71e-46b4-98a7-25afc12e6073
+        run: |
+          snyk auth $SNYK_TOKEN
+          snyk test
