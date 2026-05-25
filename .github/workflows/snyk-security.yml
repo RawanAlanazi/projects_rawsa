@@ -24,7 +24,7 @@ jobs:
 
       - name: Authenticate and Scan
         env:
-          SNYK_TOKEN: 40795790-a71e-46b4-98a7-25afc12e6073
+          SNYK_TOKEN: snyk_uat.1fcad39e.eyJlIjoxNzgwMTg5MDgwLCJoIjoic255ay5pbyIsImoiOiJBWjVjby1EbFFXV1NmY1YtV1RiOGRBIiwicyI6IlM4TkI2aDZPUWR1c1NQdUxkRG5tT1EiLCJ0aWQiOiJBQUFBQUFBQUFBQUFBQUFBQUFBQUFBIn0.JsNKRlp_e7qufjsbsvaBNYRvFi-Xle4H5YvL3jM7udEjC8UHBD8p2sNMhuNjDmaeiVGZImvW2AUrIic1mpXaAQ
         run: |
           snyk auth $SNYK_TOKEN
           snyk test
