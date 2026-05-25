@@ -18,7 +18,6 @@ jobs:
         env:
           SNYK_TOKEN: snyk_uat.1fcad39e.eyJlIjoxNzgwMTg5MDgwLCJoIjoic255ay5pbyIsImoiOiJBWjVjby1EbFFXV1NmY1YtV1RiOGRBIiwicyI6IlM4TkI2aDZPUWR1c1NQdUxkRG5tT1EiLCJ0aWQiOiJBQUFBQUFBQUFBQUFBQUFBQUFBQUFBIn0.JsNKRlp_e7qufjsbsvaBNYRvFi-Xle4H5YvL3jM7udEjC8UHBD8p2sNMhuNjDmaeiVGZImvW2AUrIic1mpXaAQ
         run: |
-          snyk test --all-projects
-          snyk monitor --all-projects
+          snyk code test
 
 
